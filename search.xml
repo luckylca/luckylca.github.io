@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>teat_life</title>
+    <url>/2024/11/02/teat-life/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+  </entry>
+  <entry>
     <title>test</title>
     <url>/2024/11/02/test/</url>
     <content><![CDATA[<p>Markdown 是一种轻量级的标记语言，用于格式化纯文本。它允许您以简单的方式添加格式，而不需要复杂的 HTML 标签。以下是一些常用的 Markdown 语法：</p>
@@ -79,13 +87,8 @@
 希望这些示例和语法能帮助您更好地使用 Markdown。如果您有任何具体问题或需要进一步的帮助，请随时提问！
 </code></pre>
 ]]></content>
-  </entry>
-  <entry>
-    <title>teat_life</title>
-    <url>/2024/11/02/teat-life/</url>
-    <content><![CDATA[]]></content>
       <categories>
-        <category>生活</category>
+        <category>技术</category>
       </categories>
   </entry>
 </search>
