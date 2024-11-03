@@ -1,70 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-  
-    
-    <entry>
-      <title>记一次离谱的刷机经历</title>
-      <link href="/2024/11/02/%E8%AE%B0%E4%B8%80%E6%AC%A1%E7%A6%BB%E8%B0%B1%E7%9A%84%E5%88%B7%E6%9C%BA/"/>
-      <url>/2024/11/02/%E8%AE%B0%E4%B8%80%E6%AC%A1%E7%A6%BB%E8%B0%B1%E7%9A%84%E5%88%B7%E6%9C%BA/</url>
-      
-        <content type="html"><![CDATA[<h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>在我爸换新手机后，我果断拿掉了我爸的旧手机，想来锻炼我的刷机技巧，我爸的手机是努比亚z17，已经非常老了，但在当时这台手机可是非常出名的，酷安评分非常高，刷机资源也比较多，我于是便开始了我的刷机操作。</p><h1 id="经历"><a href="#经历" class="headerlink" title="经历"></a>经历</h1><p>这款机型的刷机本来应该就是一个行云流水的通用刷机操作，努比亚z17有bl锁，只需要每次输一次解锁命令就可以解bl锁，非常容易，但是我却碰到了个非常棘手的情况。</p><p><img src="/2024/11/02/%E8%AE%B0%E4%B8%80%E6%AC%A1%E7%A6%BB%E8%B0%B1%E7%9A%84%E5%88%B7%E6%9C%BA/147DDA3A399B7028E94DA70AEB855EA9.jpg" alt="故障1"></p><p><img src="/2024/11/02/%E8%AE%B0%E4%B8%80%E6%AC%A1%E7%A6%BB%E8%B0%B1%E7%9A%84%E5%88%B7%E6%9C%BA/0F5E47584C7EA15BE8769031F2B066AF.jpg" alt="故障2"></p><p>特别离谱是吧。就是这样子的，adb devices跟fastboot devices可以正常读取到设备，但就是传不了boot.img到机器上，bl锁也显示已经解了，各种不同的原因报错，我找了整整几个小时，换了无数根线，甚至还担心是不是接口2.0的问题，还换了台电脑测试，结果就只是报错的原因不一样。</p><p>我真的几乎放弃了，已经不打算刷机了，无聊地刷着酷安，也在徒劳的问大佬们问题，酷安一位酷u给我推荐了某贼的一篇文章，就是针对这台设备通过9008授权深刷的，本身这台机子进入9008模式不需要工程线，或者拆机短接等复杂的操作，直接在fb界面就可以进入9008了。</p><p>于是，我带着仅剩的一点希望，下载某贼的深刷包，开始下一次测试。</p><p><img src="/2024/11/02/%E8%AE%B0%E4%B8%80%E6%AC%A1%E7%A6%BB%E8%B0%B1%E7%9A%84%E5%88%B7%E6%9C%BA/26F4F6D59768EDD41DDD40BD92811E61.jpg" alt="9008"></p><p>可是没想到又翻车了。</p><p><img src="/2024/11/02/%E8%AE%B0%E4%B8%80%E6%AC%A1%E7%A6%BB%E8%B0%B1%E7%9A%84%E5%88%B7%E6%9C%BA/6C76DD8FB7980640E3EA4AED489F93C4.jpg" alt="9008故障"></p><p>后来我灵机一动，想到我在安装一个驱动提示要重启时，没有理这个重启提示，直接进行操作了，难怪报错了。</p><p>重启后再试了一次，非常成功，从安卓8升到了安卓9，fastboot也可以正常使用了，twrp，启动！</p><p><img src="/2024/11/02/%E8%AE%B0%E4%B8%80%E6%AC%A1%E7%A6%BB%E8%B0%B1%E7%9A%84%E5%88%B7%E6%9C%BA/6B22BBA244B574F699C845781E012A7A.jpg" alt="trwp1"></p><p><img src="/2024/11/02/%E8%AE%B0%E4%B8%80%E6%AC%A1%E7%A6%BB%E8%B0%B1%E7%9A%84%E5%88%B7%E6%9C%BA/47304F0030363AB5DECB43089BD89B01.jpg" alt="twrp2"></p><p>非常丝滑的一顿操作，修补镜像，刷入magisk，成功获取root权限，也成功开始使用魔趣类原生，真没想到，魔趣系统虽然已经停止运营了，但我仍然再sourceforge平台上找到了他的包，甚至还是专门针对努比亚z17做的包，哎，这是上一个刷机时代的眼泪啊，酷安遗风了。</p><p>附张使用图</p><p><img src="/2024/11/02/%E8%AE%B0%E4%B8%80%E6%AC%A1%E7%A6%BB%E8%B0%B1%E7%9A%84%E5%88%B7%E6%9C%BA/60105DFB27E857021D7BC119FC4285FC.jpg" alt="moqu"></p><p>接着刷入了gaps，美滋滋，这一段玩机之旅也告一段落了。</p><h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>这或许就是刷机搞机的魅力吧，你可能会碰到无数问题，任何一个细节的问题都是致命的，比如中文路径什么的，但是解决了却非常有成就感，其实我看的某贼的那篇文章，是为了解决努比亚z17获取永久bl权限的，只有那个版本的包可以一行代码永久去除bl锁，但是却误打误撞解决了我的问题。</p><p>这次经历也告诉我们，碰到这种离奇的报错，可能是系统问题，尝试用9008或者com1.0深刷换一个系统，说不定有机会解决，我碰到的这个问题，网上我目前还没找到类似的问题和解决方案。</p>]]></content>
-      
-      
+<search>
+  <entry>
+    <title>teat_life</title>
+    <url>/2024/11/02/teat-life/</url>
+    <content><![CDATA[]]></content>
       <categories>
-          
-          <category> 技术 </category>
-          
+        <category>生活</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 刷机 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>teat_life</title>
-      <link href="/2024/11/02/teat-life/"/>
-      <url>/2024/11/02/teat-life/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
+  </entry>
+  <entry>
+    <title>记一次离谱的刷机经历</title>
+    <url>/2024/11/02/%E8%AE%B0%E4%B8%80%E6%AC%A1%E7%A6%BB%E8%B0%B1%E7%9A%84%E5%88%B7%E6%9C%BA/</url>
+    <content><![CDATA[<h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>在我爸换新手机后，我果断拿掉了我爸的旧手机，想来锻炼我的刷机技巧，我爸的手机是努比亚z17，已经非常老了，但在当时这台手机可是非常出名的，酷安评分非常高，刷机资源也比较多，我于是便开始了我的刷机操作。</p>
+<h1 id="经历"><a href="#经历" class="headerlink" title="经历"></a>经历</h1><p>这款机型的刷机本来应该就是一个行云流水的通用刷机操作，努比亚z17有bl锁，只需要每次输一次解锁命令就可以解bl锁，非常容易，但是我却碰到了个非常棘手的情况。</p>
+<p><img src="/2024/11/02/%E8%AE%B0%E4%B8%80%E6%AC%A1%E7%A6%BB%E8%B0%B1%E7%9A%84%E5%88%B7%E6%9C%BA/147DDA3A399B7028E94DA70AEB855EA9.jpg" alt="故障1"></p>
+<p><img src="/2024/11/02/%E8%AE%B0%E4%B8%80%E6%AC%A1%E7%A6%BB%E8%B0%B1%E7%9A%84%E5%88%B7%E6%9C%BA/0F5E47584C7EA15BE8769031F2B066AF.jpg" alt="故障2"></p>
+<p>特别离谱是吧。就是这样子的，adb devices跟fastboot devices可以正常读取到设备，但就是传不了boot.img到机器上，bl锁也显示已经解了，各种不同的原因报错，我找了整整几个小时，换了无数根线，甚至还担心是不是接口2.0的问题，还换了台电脑测试，结果就只是报错的原因不一样。</p>
+<p>我真的几乎放弃了，已经不打算刷机了，无聊地刷着酷安，也在徒劳的问大佬们问题，酷安一位酷u给我推荐了某贼的一篇文章，就是针对这台设备通过9008授权深刷的，本身这台机子进入9008模式不需要工程线，或者拆机短接等复杂的操作，直接在fb界面就可以进入9008了。</p>
+<p>于是，我带着仅剩的一点希望，下载某贼的深刷包，开始下一次测试。</p>
+<p><img src="/2024/11/02/%E8%AE%B0%E4%B8%80%E6%AC%A1%E7%A6%BB%E8%B0%B1%E7%9A%84%E5%88%B7%E6%9C%BA/26F4F6D59768EDD41DDD40BD92811E61.jpg" alt="9008"></p>
+<p>可是没想到又翻车了。</p>
+<p><img src="/2024/11/02/%E8%AE%B0%E4%B8%80%E6%AC%A1%E7%A6%BB%E8%B0%B1%E7%9A%84%E5%88%B7%E6%9C%BA/6C76DD8FB7980640E3EA4AED489F93C4.jpg" alt="9008故障"></p>
+<p>后来我灵机一动，想到我在安装一个驱动提示要重启时，没有理这个重启提示，直接进行操作了，难怪报错了。</p>
+<p>重启后再试了一次，非常成功，从安卓8升到了安卓9，fastboot也可以正常使用了，twrp，启动！</p>
+<p><img src="/2024/11/02/%E8%AE%B0%E4%B8%80%E6%AC%A1%E7%A6%BB%E8%B0%B1%E7%9A%84%E5%88%B7%E6%9C%BA/6B22BBA244B574F699C845781E012A7A.jpg" alt="trwp1"></p>
+<p><img src="/2024/11/02/%E8%AE%B0%E4%B8%80%E6%AC%A1%E7%A6%BB%E8%B0%B1%E7%9A%84%E5%88%B7%E6%9C%BA/47304F0030363AB5DECB43089BD89B01.jpg" alt="twrp2"></p>
+<p>非常丝滑的一顿操作，修补镜像，刷入magisk，成功获取root权限，也成功开始使用魔趣类原生，真没想到，魔趣系统虽然已经停止运营了，但我仍然再sourceforge平台上找到了他的包，甚至还是专门针对努比亚z17做的包，哎，这是上一个刷机时代的眼泪啊，酷安遗风了。</p>
+<p>附张使用图</p>
+<p><img src="/2024/11/02/%E8%AE%B0%E4%B8%80%E6%AC%A1%E7%A6%BB%E8%B0%B1%E7%9A%84%E5%88%B7%E6%9C%BA/60105DFB27E857021D7BC119FC4285FC.jpg" alt="moqu"></p>
+<p>接着刷入了gaps，美滋滋，这一段玩机之旅也告一段落了。</p>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>这或许就是刷机搞机的魅力吧，你可能会碰到无数问题，任何一个细节的问题都是致命的，比如中文路径什么的，但是解决了却非常有成就感，其实我看的某贼的那篇文章，是为了解决努比亚z17获取永久bl权限的，只有那个版本的包可以一行代码永久去除bl锁，但是却误打误撞解决了我的问题。</p>
+<p>这次经历也告诉我们，碰到这种离奇的报错，可能是系统问题，尝试用9008或者com1.0深刷换一个系统，说不定有机会解决，我碰到的这个问题，网上我目前还没找到类似的问题和解决方案。</p>
+]]></content>
       <categories>
-          
-          <category> 生活 </category>
-          
+        <category>技术</category>
       </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>test</title>
-      <link href="/2024/11/02/test/"/>
-      <url>/2024/11/02/test/</url>
-      
-        <content type="html"><![CDATA[<p>Markdown 是一种轻量级的标记语言，用于格式化纯文本。它允许您以简单的方式添加格式，而不需要复杂的 HTML 标签。以下是一些常用的 Markdown 语法：</p><h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><h4 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 一级标题</span></span><br><span class="line"><span class="section">## 二级标题</span></span><br><span class="line"><span class="section">### 三级标题</span></span><br><span class="line"><span class="section">#### 四级标题</span></span><br><span class="line"><span class="section">##### 五级标题</span></span><br><span class="line"><span class="section">###### 六级标题</span></span><br></pre></td></tr></table></figure><h4 id="段落和换行"><a href="#段落和换行" class="headerlink" title="段落和换行"></a>段落和换行</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">这是一个段落。</span><br><span class="line"></span><br><span class="line">这是另一个段落。</span><br></pre></td></tr></table></figure><h4 id="强调"><a href="#强调" class="headerlink" title="强调"></a>强调</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="emphasis">*斜体*</span></span><br><span class="line"><span class="emphasis">_斜体_</span></span><br><span class="line"></span><br><span class="line"><span class="strong">**粗体**</span></span><br><span class="line"><span class="strong">__粗体__</span></span><br><span class="line"></span><br><span class="line"><span class="strong">**<span class="emphasis">*粗斜体*</span>**</span></span><br><span class="line"><span class="strong">__<span class="emphasis">_粗斜体_</span>__</span></span><br></pre></td></tr></table></figure><h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><ul><li><p><strong>无序列表</strong></p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> 列表项1</span><br><span class="line"><span class="bullet">-</span> 列表项2</span><br><span class="line"><span class="bullet">-</span> 列表项3</span><br></pre></td></tr></table></figure></li><li><p><strong>有序列表</strong></p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">1.</span> 列表项1</span><br><span class="line"><span class="bullet">2.</span> 列表项2</span><br><span class="line"><span class="bullet">3.</span> 列表项3</span><br></pre></td></tr></table></figure></li><li><p><strong>嵌套列表</strong></p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">1.</span> 列表项1</span><br><span class="line"><span class="bullet">   -</span> 子列表项1</span><br><span class="line"><span class="bullet">   -</span> 子列表项2</span><br><span class="line"><span class="bullet">2.</span> 列表项2</span><br></pre></td></tr></table></figure></li></ul><h4 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">链接文本</span>](<span class="link">URL</span>)</span><br></pre></td></tr></table></figure><h4 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">替代文本</span>](<span class="link">图片URL</span>)</span><br></pre></td></tr></table></figure><h4 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h4><ul><li><p><strong>内联代码</strong></p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="code">`这是内联代码`</span></span><br></pre></td></tr></table></figure></li><li><p><strong>多行代码块</strong></p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="code">```语言</span></span><br><span class="line"><span class="code">这是多行代码块</span></span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 引用</span><br><span class="line">```markdown</span><br><span class="line">&gt; 这是一个引用块。</span><br></pre></td></tr></table></figure></li></ul><h4 id="水平线"><a href="#水平线" class="headerlink" title="水平线"></a>水平线</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">---</span><br></pre></td></tr></table></figure><h3 id="高级语法"><a href="#高级语法" class="headerlink" title="高级语法"></a>高级语法</h3><h4 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">| 列1 | 列2 | 列3 |</span><br><span class="line">| --- | --- | --- |</span><br><span class="line">| 内容1 | 内容2 | 内容3 |</span><br><span class="line">| 内容4 | 内容5 | 内容6 |</span><br></pre></td></tr></table></figure><h4 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~~删除线~~</span><br></pre></td></tr></table></figure><h4 id="任务列表"><a href="#任务列表" class="headerlink" title="任务列表"></a>任务列表</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> [x] 已完成的任务</span><br><span class="line"><span class="bullet">-</span> [ ] 未完成的任务</span><br></pre></td></tr></table></figure><h4 id="表情符号"><a href="#表情符号" class="headerlink" title="表情符号"></a>表情符号</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:smile:</span><br></pre></td></tr></table></figure><h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><h4 id="综合示例"><a href="#综合示例" class="headerlink" title="综合示例"></a>综合示例</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 我的第一篇 Markdown 文章</span></span><br><span class="line"></span><br><span class="line">这是一个段落。接下来是一些 <span class="strong">**粗体**</span> 和 <span class="emphasis">*斜体*</span> 的文字。</span><br><span class="line"></span><br><span class="line"><span class="section">## 子标题</span></span><br><span class="line"></span><br><span class="line">这是一个无序列表：</span><br><span class="line"><span class="bullet">-</span> 列表项1</span><br><span class="line"><span class="bullet">-</span> 列表项2</span><br><span class="line"><span class="bullet">-</span> 列表项3</span><br><span class="line"></span><br><span class="line">这是一个有序列表：</span><br><span class="line"><span class="bullet">1.</span> 列表项1</span><br><span class="line"><span class="bullet">2.</span> 列表项2</span><br><span class="line"><span class="bullet">3.</span> 列表项3</span><br><span class="line"></span><br><span class="line">这是一个链接：[<span class="string">百度</span>](<span class="link">https://www.baidu.com</span>)</span><br><span class="line"></span><br><span class="line">这是一个图片：</span><br><span class="line">![<span class="string">Markdown Logo</span>](<span class="link">https://markdown-guide-images.vercel.app/logo-markdown.png</span>)</span><br><span class="line"></span><br><span class="line">这是一个代码块：</span><br><span class="line"><span class="code">```python</span></span><br><span class="line"><span class="code">def hello_world():</span></span><br><span class="line"><span class="code">    print(&quot;Hello, world!&quot;)</span></span><br></pre></td></tr></table></figure><p>这是一个引用：</p><blockquote><p>这是一个引用块。</p></blockquote><h2 id="这是一个水平线："><a href="#这是一个水平线：" class="headerlink" title="这是一个水平线："></a>这是一个水平线：</h2><p>这是一个表格：</p><table><thead><tr><th>名称</th><th>年龄</th><th>地址</th></tr></thead><tbody><tr><td>张三</td><td>25</td><td>北京</td></tr><tr><td>李四</td><td>30</td><td>上海</td></tr></tbody></table><p>这是一个删除线：<br><del>错误的信息</del></p><p>这是一个任务列表：</p><ul><li><input checked disabled type="checkbox"> 已完成的任务</li><li><input disabled type="checkbox"> 未完成的任务</li></ul><p>这是一个表情符号：<br>:smile:</p><pre><code>希望这些示例和语法能帮助您更好地使用 Markdown。如果您有任何具体问题或需要进一步的帮助，请随时提问！</code></pre>]]></content>
-      
-      
+      <tags>
+        <tag>刷机</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>test</title>
+    <url>/2024/11/02/test/</url>
+    <content><![CDATA[<p>Markdown 是一种轻量级的标记语言，用于格式化纯文本。它允许您以简单的方式添加格式，而不需要复杂的 HTML 标签。以下是一些常用的 Markdown 语法：</p>
+<h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><h4 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># 一级标题</span></span><br><span class="line"><span class="section">## 二级标题</span></span><br><span class="line"><span class="section">### 三级标题</span></span><br><span class="line"><span class="section">#### 四级标题</span></span><br><span class="line"><span class="section">##### 五级标题</span></span><br><span class="line"><span class="section">###### 六级标题</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="段落和换行"><a href="#段落和换行" class="headerlink" title="段落和换行"></a>段落和换行</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">这是一个段落。</span><br><span class="line"></span><br><span class="line">这是另一个段落。</span><br></pre></td></tr></table></figure>
+
+<h4 id="强调"><a href="#强调" class="headerlink" title="强调"></a>强调</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="emphasis">*斜体*</span></span><br><span class="line"><span class="emphasis">_斜体_</span></span><br><span class="line"></span><br><span class="line"><span class="strong">**粗体**</span></span><br><span class="line"><span class="strong">__粗体__</span></span><br><span class="line"></span><br><span class="line"><span class="strong">**<span class="emphasis">*粗斜体*</span>**</span></span><br><span class="line"><span class="strong">__<span class="emphasis">_粗斜体_</span>__</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><ul>
+<li><p><strong>无序列表</strong></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> 列表项1</span><br><span class="line"><span class="bullet">-</span> 列表项2</span><br><span class="line"><span class="bullet">-</span> 列表项3</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>有序列表</strong></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">1.</span> 列表项1</span><br><span class="line"><span class="bullet">2.</span> 列表项2</span><br><span class="line"><span class="bullet">3.</span> 列表项3</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>嵌套列表</strong></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">1.</span> 列表项1</span><br><span class="line"><span class="bullet">   -</span> 子列表项1</span><br><span class="line"><span class="bullet">   -</span> 子列表项2</span><br><span class="line"><span class="bullet">2.</span> 列表项2</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">链接文本</span>](<span class="link">URL</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">替代文本</span>](<span class="link">图片URL</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h4><ul>
+<li><p><strong>内联代码</strong></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="code">`这是内联代码`</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>多行代码块</strong></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="code">```语言</span></span><br><span class="line"><span class="code">这是多行代码块</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">#### 引用</span><br><span class="line">```markdown</span><br><span class="line">&gt; 这是一个引用块。</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="水平线"><a href="#水平线" class="headerlink" title="水平线"></a>水平线</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<h3 id="高级语法"><a href="#高级语法" class="headerlink" title="高级语法"></a>高级语法</h3><h4 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">| 列1 | 列2 | 列3 |</span><br><span class="line">| --- | --- | --- |</span><br><span class="line">| 内容1 | 内容2 | 内容3 |</span><br><span class="line">| 内容4 | 内容5 | 内容6 |</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">~~删除线~~</span><br></pre></td></tr></table></figure>
+
+<h4 id="任务列表"><a href="#任务列表" class="headerlink" title="任务列表"></a>任务列表</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> [x] 已完成的任务</span><br><span class="line"><span class="bullet">-</span> [ ] 未完成的任务</span><br></pre></td></tr></table></figure>
+
+<h4 id="表情符号"><a href="#表情符号" class="headerlink" title="表情符号"></a>表情符号</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">:smile:</span><br></pre></td></tr></table></figure>
+
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><h4 id="综合示例"><a href="#综合示例" class="headerlink" title="综合示例"></a>综合示例</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># 我的第一篇 Markdown 文章</span></span><br><span class="line"></span><br><span class="line">这是一个段落。接下来是一些 <span class="strong">**粗体**</span> 和 <span class="emphasis">*斜体*</span> 的文字。</span><br><span class="line"></span><br><span class="line"><span class="section">## 子标题</span></span><br><span class="line"></span><br><span class="line">这是一个无序列表：</span><br><span class="line"><span class="bullet">-</span> 列表项1</span><br><span class="line"><span class="bullet">-</span> 列表项2</span><br><span class="line"><span class="bullet">-</span> 列表项3</span><br><span class="line"></span><br><span class="line">这是一个有序列表：</span><br><span class="line"><span class="bullet">1.</span> 列表项1</span><br><span class="line"><span class="bullet">2.</span> 列表项2</span><br><span class="line"><span class="bullet">3.</span> 列表项3</span><br><span class="line"></span><br><span class="line">这是一个链接：[<span class="string">百度</span>](<span class="link">https://www.baidu.com</span>)</span><br><span class="line"></span><br><span class="line">这是一个图片：</span><br><span class="line">![<span class="string">Markdown Logo</span>](<span class="link">https://markdown-guide-images.vercel.app/logo-markdown.png</span>)</span><br><span class="line"></span><br><span class="line">这是一个代码块：</span><br><span class="line"><span class="code">```python</span></span><br><span class="line"><span class="code">def hello_world():</span></span><br><span class="line"><span class="code">    print(&quot;Hello, world!&quot;)</span></span><br></pre></td></tr></table></figure>
+
+<p>这是一个引用：</p>
+<blockquote>
+<p>这是一个引用块。</p>
+</blockquote>
+<h2 id="这是一个水平线："><a href="#这是一个水平线：" class="headerlink" title="这是一个水平线："></a>这是一个水平线：</h2><p>这是一个表格：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>年龄</th>
+<th>地址</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>张三</td>
+<td>25</td>
+<td>北京</td>
+</tr>
+<tr>
+<td>李四</td>
+<td>30</td>
+<td>上海</td>
+</tr>
+</tbody></table>
+<p>这是一个删除线：<br><del>错误的信息</del></p>
+<p>这是一个任务列表：</p>
+<ul>
+<li><input checked disabled type="checkbox"> 已完成的任务</li>
+<li><input disabled type="checkbox"> 未完成的任务</li>
+</ul>
+<p>这是一个表情符号：<br>:smile:</p>
+<pre><code>
+希望这些示例和语法能帮助您更好地使用 Markdown。如果您有任何具体问题或需要进一步的帮助，请随时提问！
+</code></pre>
+]]></content>
       <categories>
-          
-          <category> 技术 </category>
-          
+        <category>技术</category>
       </categories>
-      
-      
-    </entry>
-    
-    
-  
-  
+  </entry>
 </search>
