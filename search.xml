@@ -280,4 +280,38 @@
         <tag>单片机</tag>
       </tags>
   </entry>
+  <entry>
+    <title>python人脸检测</title>
+    <url>/2024/11/15/python%E4%BA%BA%E8%84%B8%E6%A3%80%E6%B5%8B/</url>
+    <content><![CDATA[<h1 id="python人脸检测"><a href="#python人脸检测" class="headerlink" title="python人脸检测"></a>python人脸检测</h1><p>最近突然对图像识别有了点兴趣，便开始找一些识别的库，我这里采用的是python+opencv的方法，利用opencv内置的人脸检测库，可以比较方便快速地检测出人脸，学的很浅，也就图一乐。记录下来也只是为了以后便于回忆。</p>
+<h2 id="将图片转化为灰度图片"><a href="#将图片转化为灰度图片" class="headerlink" title="将图片转化为灰度图片"></a>将图片转化为灰度图片</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">import cv2 as cv</span><br><span class="line">img = cv.imread(&#x27;testlca.jpg&#x27;)</span><br><span class="line">cv.imshow(&#x27;test&#x27;, img)</span><br><span class="line">gray<span class="emphasis">_img = cv.cvtColor(img, cv.COLOR_</span>BGR2GRAY)</span><br><span class="line">cv.imshow(&#x27;gray&#x27;, gray<span class="emphasis">_img)</span></span><br><span class="line"><span class="emphasis">cv.imwrite(&#x27;testlca_</span>gray.jpg&#x27;, gray<span class="emphasis">_img)</span></span><br><span class="line"><span class="emphasis">cv.waitKey(0)</span></span><br><span class="line"><span class="emphasis">cv.destroyAllWindows()</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>首先读取名叫testlca.jpg的图片，并且将它的命名为img，然后展示这个图片，再用opencv内置的函数，将这个图片转化为灰度图片，并且写入到testlca_gray.jpg文件，也展示这个图片。</p>
+<p>一般处理图片，都需要先将其转化为灰度图片，然后再进行一系列的识别等步骤。</p>
+<h2 id="调整图片大小"><a href="#调整图片大小" class="headerlink" title="调整图片大小"></a>调整图片大小</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">import cv2 as cv</span><br><span class="line">img = cv.imread(&#x27;testlca.jpg&#x27;)</span><br><span class="line">cv.imshow(&#x27;test&#x27;, img)</span><br><span class="line">resize<span class="emphasis">_test = cv.resize(img, (200,200), fx=0.5, fy=0.5)</span></span><br><span class="line"><span class="emphasis">cv.imshow(&#x27;resize_</span>test&#x27;, resize<span class="emphasis">_test)</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">while True:</span></span><br><span class="line"><span class="emphasis">    if ord(&#x27;q&#x27;) == cv.waitKey(0):</span></span><br><span class="line"><span class="emphasis">        break</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">cv.destroyAllWindows()</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>同样读取文件，这里将img图片进行了修改，将它转化为200*200像素的图片，并且也展示出来，还做了一个按键检测，当按下q的时候，图片才会关闭。</p>
+<h2 id="绘制图形"><a href="#绘制图形" class="headerlink" title="绘制图形"></a>绘制图形</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">import cv2 as cv</span><br><span class="line">img = cv.imread(&#x27;testlca.jpg&#x27;)</span><br><span class="line"></span><br><span class="line">x,y,w,h = 100,100,100,100</span><br><span class="line">cv.rectangle(img, (x,y), (x+w,y+h), (0,0,255), 2)</span><br><span class="line">cv.circle(img, (x+w//2,y+h//2), 50, (0,255,0), 2)</span><br><span class="line"></span><br><span class="line">cv.imshow(&#x27;img&#x27;, img)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">while True:</span><br><span class="line"><span class="code">    if ord(&#x27;q&#x27;) == cv.waitKey(0):</span></span><br><span class="line"><span class="code">        break</span></span><br><span class="line"><span class="code"></span></span><br><span class="line">cv.destroyAllWindows()</span><br></pre></td></tr></table></figure>
+
+
+
+<p>这里定义并赋值了4个变量，并且在图片上打印了对应位置的矩形和圆形。</p>
+<h2 id="人脸检测"><a href="#人脸检测" class="headerlink" title="人脸检测"></a>人脸检测</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import cv2 as cv</span><br><span class="line">def face_detect_demo():</span><br><span class="line">    gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)</span><br><span class="line">    face_detector = cv.CascadeClassifier(&#x27;E:/python/opencv/sources/data/haarcascades/haarcascade_eye.xml&#x27;)</span><br><span class="line">    face = face_detector.detectMultiScale(gray,1.9,5)</span><br><span class="line">    for x, y, w, h in face:</span><br><span class="line">        cv.rectangle(img, (x, y), (x+w, y+h), (0, 0, 255), 2)</span><br><span class="line">    cv.imshow(&#x27;result&#x27;, img)</span><br><span class="line"></span><br><span class="line">img = cv.imread(&#x27;testlca.jpg&#x27;)</span><br><span class="line">face_detect_demo()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">while True:</span><br><span class="line">    if ord(&#x27;q&#x27;) == cv.waitKey(0):</span><br><span class="line">        break</span><br><span class="line"></span><br><span class="line">cv.destroyAllWindows()</span><br></pre></td></tr></table></figure>
+
+
+
+<p>先定义了一个检测函数，这里非常简陋，也没做参数处理了，原理就是调用官方的人脸识别库识别出图片中的人脸，并且用矩形框显示出来。</p>
+<p>其中face_detector.detectMultiScale这个函数中的第二个变量叫缩小比例，是影响效果的重要变量，要选取适当的变量值才可以正确的识别出所有人脸。</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
 </search>
