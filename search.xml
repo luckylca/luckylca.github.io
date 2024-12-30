@@ -404,7 +404,7 @@
 
 
 
-<h2 id="中断"><a href="#中断" class="headerlink" title="中断"></a>中断</h2><p>这里跟51单片机的定时器情况类似，32就直接引入了中断的概念，像我的stm32f103有68种中断函数，有硬件中断也有定时器中断还有EXIT中断等等。</p>
+<h2 id="中断"><a href="#中断" class="headerlink" title="中断"></a>中断</h2><h3 id="对射红外传感器计次"><a href="#对射红外传感器计次" class="headerlink" title="对射红外传感器计次"></a>对射红外传感器计次</h3><p>这里跟51单片机的定时器情况类似，32就直接引入了中断的概念，像我的stm32f103有68种中断函数，有硬件中断也有定时器中断还有EXIT中断等等。</p>
 <p><img src="/2024/12/07/32%E5%8D%95%E7%89%87%E6%9C%BA%E7%B3%BB%E5%88%97/1735054774083.png" alt="1735054774083"></p>
 <p>这就是EXIT中断的简要流程图，我们也需要根据图上的内容来依次配置寄存器，用hal库。</p>
 <p>首先第一个是AFIO，AFIO的作用是从多个GPIO接口中筛选出一个16接口来交给EXIT，避免线太多的麻烦，所以在配置EXIT中断时，选择监视的接口的端口位数不能有重复的，就比如不能同时设置GPIO_PinB1和GPIO_PinA1同时作为EXIT检测的io口，这样会出错。</p>
@@ -415,6 +415,12 @@
 
 
 <p>这就是简单的一个光线传感器的计数模块，利用了中断函数进行计数。</p>
+<h3 id="旋转编码计次"><a href="#旋转编码计次" class="headerlink" title="旋转编码计次"></a>旋转编码计次</h3><p>这里用到了一个简单的旋转编码器，在连接vcc跟gnd和两个信号传输线后就可以正常使用了。有A相和B相输出，其中两向之间存在相位差，正转：如果A相先于B相变化，则表示编码器正转。反转：如果B相先于A相变化，则表示编码器反转。</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;stm32f10x.h&quot;</span>                  <span class="comment">// Device header</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int16_t</span> Encoder_Count;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">Encoder_Init</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);</span><br><span class="line">	RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO, ENABLE);</span><br><span class="line">	</span><br><span class="line">	GPIO_InitTypeDef GPIO_InitStructure;</span><br><span class="line">	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;</span><br><span class="line">	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1;</span><br><span class="line">	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;</span><br><span class="line">	GPIO_Init(GPIOB, &amp;GPIO_InitStructure);</span><br><span class="line">	</span><br><span class="line">	GPIO_EXTILineConfig(GPIO_PortSourceGPIOB, GPIO_PinSource0);</span><br><span class="line">	GPIO_EXTILineConfig(GPIO_PortSourceGPIOB, GPIO_PinSource1);</span><br><span class="line">	</span><br><span class="line">	EXTI_InitTypeDef EXTI_InitStructure;</span><br><span class="line">	EXTI_InitStructure.EXTI_Line = EXTI_Line0 | EXTI_Line1;</span><br><span class="line">	EXTI_InitStructure.EXTI_LineCmd = ENABLE;</span><br><span class="line">	EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;</span><br><span class="line">	EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling;</span><br><span class="line">	EXTI_Init(&amp;EXTI_InitStructure);</span><br><span class="line">	</span><br><span class="line">	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);</span><br><span class="line">	</span><br><span class="line">	NVIC_InitTypeDef NVIC_InitStructure;</span><br><span class="line">	NVIC_InitStructure.NVIC_IRQChannel = EXTI0_IRQn;</span><br><span class="line">	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;</span><br><span class="line">	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = <span class="number">1</span>;</span><br><span class="line">	NVIC_InitStructure.NVIC_IRQChannelSubPriority = <span class="number">1</span>;</span><br><span class="line">	NVIC_Init(&amp;NVIC_InitStructure);</span><br><span class="line"></span><br><span class="line">	NVIC_InitStructure.NVIC_IRQChannel = EXTI1_IRQn;</span><br><span class="line">	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;</span><br><span class="line">	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = <span class="number">1</span>;</span><br><span class="line">	NVIC_InitStructure.NVIC_IRQChannelSubPriority = <span class="number">2</span>;</span><br><span class="line">	NVIC_Init(&amp;NVIC_InitStructure);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int16_t</span> <span class="title function_">Encoder_Get</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int16_t</span> Temp;</span><br><span class="line">	Temp = Encoder_Count;</span><br><span class="line">	Encoder_Count = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">return</span> Temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">EXTI0_IRQHandler</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span> (EXTI_GetITStatus(EXTI_Line0) == SET)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_0) == <span class="number">0</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_1) == <span class="number">0</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				Encoder_Count --;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		EXTI_ClearITPendingBit(EXTI_Line0);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">EXTI1_IRQHandler</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span> (EXTI_GetITStatus(EXTI_Line1) == SET)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_1) == <span class="number">0</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_0) == <span class="number">0</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				Encoder_Count ++;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		EXTI_ClearITPendingBit(EXTI_Line1);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>编码器核心代码如上，当触发中断的时候，快速判断另一个头是不是低电平，来实现判断正转和反转，并进行+1和-1的操作。在主程序中只用num+&#x3D;Encoder_Get()即可，并打印出num的值。</p>
 ]]></content>
       <categories>
         <category>技术</category>
@@ -469,6 +475,49 @@
       </categories>
       <tags>
         <tag>单片机</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>安卓逆向实战——录音达人</title>
+    <url>/2024/12/29/%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E2%80%94%E2%80%94%E5%BD%95%E9%9F%B3%E8%BE%BE%E4%BA%BA/</url>
+    <content><![CDATA[<h1 id="安卓逆向实战——录音达人"><a href="#安卓逆向实战——录音达人" class="headerlink" title="安卓逆向实战——录音达人"></a>安卓逆向实战——录音达人</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这是从mt论坛的一篇教程帖子而来的，算是比较简单的入门级逆向了，但我觉得可以很好地体现逆向思路，于是便记录了下来。</p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>首先观察这个软件的会员截图</p>
+<p><img src="/2024/12/29/%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E2%80%94%E2%80%94%E5%BD%95%E9%9F%B3%E8%BE%BE%E4%BA%BA/6553C67F466E40634ACD981A30B238A7.jpg" alt="6553C67F466E40634ACD981A30B238A7"></p>
+<p>提示有VIP，而且需要登陆才可以使用。</p>
+<p>然后果断放到mt里面看看情况。</p>
+<p>这款软件逆向起来比较简单，没有加壳，但有签名验证。所以首先是用mt管理器对它进行去签处理，就用v1+v2+v3的版本就行了。</p>
+<p><img src="/2024/12/29/%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E2%80%94%E2%80%94%E5%BD%95%E9%9F%B3%E8%BE%BE%E4%BA%BA/41B41AA72F1CB66E5CD92DAE30C18619.jpg" alt="41B41AA72F1CB66E5CD92DAE30C18619"></p>
+<p>去签了之后就可以对dex文件进行逆向操作了。</p>
+<p>这种简单的app直接搜方法名就行了。搜索isvip，进入第一个方法。</p>
+<p><img src="/2024/12/29/%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E2%80%94%E2%80%94%E5%BD%95%E9%9F%B3%E8%BE%BE%E4%BA%BA/07AFEB63A5F7BD1E848BBD002C38A582.jpg" alt="07AFEB63A5F7BD1E848BBD002C38A582"></p>
+<p>然后就开始分析smial语法就行了。我就直接把smile语法贴出来了。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.method public isVip()Z</span><br><span class="line">    .registers 2		//申请寄存器，提示需要两个变量</span><br><span class="line"></span><br><span class="line">    .line 1</span><br><span class="line">    sget-object v0, Lf4/e$b;-&gt;a:Lf4/e;</span><br><span class="line"></span><br><span class="line">    .line 2</span><br><span class="line">    invoke-virtual &#123;v0&#125;, Lf4/e;-&gt;d()Z		//传递进v0变量到d函数中，并且返回一个布尔变量</span><br><span class="line"></span><br><span class="line">    move-result v0			//将上一步返回的变量储存到v0中</span><br><span class="line"></span><br><span class="line">    const/4 v0, 0x1			//逆向代码，这是我编辑上去的</span><br><span class="line"></span><br><span class="line">    return v0		//结束方法，返回v0</span><br><span class="line">.end method</span><br></pre></td></tr></table></figure>
+
+
+
+<p>分析可知，这是一个判断是否为vip的方法，就是通过d函数的返回值来判断是否为vip，这里mt论坛上的原帖是再次进入d函数中，针对d函数所返回的值进行逆向，也是可行的，我就直接在下面加了一行代码，将v0强行赋值为1，一样可以实现逆向。</p>
+<p>效果如下，可以看到已经成为VIP了。</p>
+<p><img src="/2024/12/29/%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E2%80%94%E2%80%94%E5%BD%95%E9%9F%B3%E8%BE%BE%E4%BA%BA/7ECCE2F26292E5245074751E230D3106.jpg" alt="7ECCE2F26292E5245074751E230D3106"></p>
+<p>然后就是关于文字转语音的时长破解。</p>
+<p>在isvip的方法往上翻，可以找到这个方法getUserTimeS</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.method public getUserTimeS()J</span><br><span class="line">    .registers 3</span><br><span class="line"></span><br><span class="line">    .line 1</span><br><span class="line">    sget-object v0, Lj4/l$c;-&gt;a:Lj4/l;</span><br><span class="line"></span><br><span class="line">    .line 2</span><br><span class="line">    invoke-virtual &#123;v0&#125;, Lj4/l;-&gt;d()J</span><br><span class="line"></span><br><span class="line">    move-result-wide v0</span><br><span class="line"></span><br><span class="line">    return-wide v0</span><br><span class="line">.end method</span><br></pre></td></tr></table></figure>
+
+
+
+<p>这个就是控制可语音转文字时长的关键代码。修改原理跟上面的类似，也是直接在返回v0的值前给v0赋值。</p>
+<p>这里我用的论坛给的数据。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">const-wide v0, 0x4102369980000L</span><br></pre></td></tr></table></figure>
+
+<p>这样对v0进行赋值就可以了。</p>
+<p><img src="/2024/12/29/%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98%E2%80%94%E2%80%94%E5%BD%95%E9%9F%B3%E8%BE%BE%E4%BA%BA/34919DE19662CA990A24BEF675F28A3E.jpg" alt="34919DE19662CA990A24BEF675F28A3E"></p>
+<p>逆向成功，可以正常使用语音转文字功能。帖子里的逆向方法是继续进入d函数里面，对d函数的返回值进行修改，大同小异，也可以最终实现功能</p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>至此，所有的逆向已经结束。附上原帖：<a href="https://bbs.binmt.cc/thread-142642-1-1.html">https://bbs.binmt.cc/thread-142642-1-1.html</a></p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>逆向 安卓</tag>
       </tags>
   </entry>
 </search>
