@@ -520,4 +520,23 @@
         <tag>逆向 安卓</tag>
       </tags>
   </entry>
+  <entry>
+    <title>一个基于python的简单b站收藏记录程序</title>
+    <url>/2025/01/04/%E4%B8%80%E4%B8%AA%E5%9F%BA%E4%BA%8Epython%E7%9A%84%E7%AE%80%E5%8D%95b%E7%AB%99%E6%94%B6%E8%97%8F%E8%AE%B0%E5%BD%95%E7%A8%8B%E5%BA%8F/</url>
+    <content><![CDATA[<h1 id="一个基于python的简单b站收藏记录程序"><a href="#一个基于python的简单b站收藏记录程序" class="headerlink" title="一个基于python的简单b站收藏记录程序"></a>一个基于python的简单b站收藏记录程序</h1><h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>做这个程序的初衷是因为被b站官方的视频记录恶心到了，很多时候不知道为什么，打开那种合集视频，每次都不能成功定位到我上一次看视频的位置，每次都是从第一个视频开始看，然后还要一个个地翻找才可以回到那个具体的视频。于是我就想做一个简单的程序，通过输入b站视频的地址，就可以自动转换为超链接并且保存到md文件中，方便以后的浏览。</p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>这个程序就是输入你所看的b站视频链接，推荐输入精准空降的那个链接，可以更加方便的定位，便于下一次浏览，当然普通的链接一样可行。</p>
+<p>接受到链接后，就通过爬虫，爬取到这个视频的标题，并且做成超链接，写入到同一目录下的收藏.md文件中，如果没有这个文件，也会自动创建这个文件。</p>
+<p>如果连续输入两次相同的链接，会将新的链接替换到老的链接上，而不会继续添加新的超链接，避免了数据的冗杂。</p>
+<p>在每次输入完链接，并执行完主程序后，会提示用户，是否继续操作，如果用户想继续添加链接，根据提示输入相应的指令就可以了。</p>
+<p>一个很简单的小程序，将近100行代码就可以完成的，核心就是正则和文件的读取操作。</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>开源在了GitHub上：<a href="https://github.com/luckylca/bil_record/tree/lca">https://github.com/luckylca/bil_record/tree/lca</a></p>
+<p>想使用的话直接进releases里下载exe就行。</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
 </search>
