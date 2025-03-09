@@ -603,4 +603,27 @@
         <tag>python</tag>
       </tags>
   </entry>
+  <entry>
+    <title>科目一学习app</title>
+    <url>/2025/03/01/%E7%A7%91%E7%9B%AE%E4%B8%80%E5%AD%A6%E4%B9%A0app/</url>
+    <content><![CDATA[<h1 id="科目一学习app"><a href="#科目一学习app" class="headerlink" title="科目一学习app"></a>科目一学习app</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近在网上找了个接口，关于科目一习题的接口，也刚好在学前端，就花了点时间，写了个小的uniapp项目，就是一个科目一做题的简单app。</p>
+<h2 id="经过"><a href="#经过" class="headerlink" title="经过"></a>经过</h2><p>做了三个功能，一个每日练习，一个全真模拟，一个错题集。</p>
+<p>界面如下：</p>
+<p><img src="/2025/03/01/%E7%A7%91%E7%9B%AE%E4%B8%80%E5%AD%A6%E4%B9%A0app/Snipaste_2025-03-04_18-19-46.jpg" alt="Snipaste_2025-03-04_18-19-46"></p>
+<p>主要还是不太会ui设计，想做出高级感，也只会加点阴影了。</p>
+<p>具体代码开源到GitHub上了。<a href="https://github.com/luckylca/kemu1_learn">科目一练习</a></p>
+<p>这个原本还可以有H5版本的，但是因为只是拿的别人的接口，处理不了浏览器跨域问题，如果本地调试还可以设置本地代理绕过，但是发布成网页界面，就不能拿到正确资源了。所以我只打包成了app端。</p>
+<p>在我一开始打包的时候，发现安卓和小程序端的一些界面一直进不去，但是web端就是正常的，经过排查发现，是因为我做了动画，就是当点击按钮的时候，通过盒子的id获取到dom，然后再给这个dom添加动画css来实现按键动画的功能，后来发现小程序和app端都不支持这个获取id的代码，因为这个方法是原生webjs的功能。</p>
+<p>后来在我咨询了ai，以后，发现可以用另一种方式实现功能，就是通过:class的方法，通过操控响应式变量来控制class是否应用，比较方便，也可以兼容多端。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>一个很简单的前端练手项目而已，ui也写的不是很好，部分css还是咨询了ai，比如设置背景颜色渐变什么的，还有部分动画也是。</p>
+<p>不过最后写出来的app还是很能用的，有错题的功能，我查过了，题库总共大概有4000道题，每道题都有对应的解析。</p>
+<p>也有美中不足的问题，就是我的项目不支持多选，有些题目是多选题，但是我的项目只能选一个提交，不过目前暂时没有改进的想法</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+      </tags>
+  </entry>
 </search>
