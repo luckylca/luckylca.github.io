@@ -1086,6 +1086,17 @@
     <title>数据结构技巧记录</title>
     <url>/2025/08/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8A%80%E5%B7%A7%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<h1 id="数据结构技巧记录"><a href="#数据结构技巧记录" class="headerlink" title="数据结构技巧记录"></a>数据结构技巧记录</h1><p>算法刚刚入门，打算将一些需要死记硬背的算法模板和一些灵活的算法思路记录下来，以后可以复习或者思路整理。</p>
+<h2 id="数据结构分类"><a href="#数据结构分类" class="headerlink" title="数据结构分类"></a>数据结构分类</h2><p>这是按照算法中所使用的数据结构进行分类整理的题目</p>
+<h3 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h3><h4 id="图书整理"><a href="#图书整理" class="headerlink" title="图书整理"></a>图书整理</h4><h5 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h5><p>书店店员有一张链表形式的书单，每个节点代表一本书，节点中的值表示书的编号。为更方便整理书架，店员需要将书单倒过来排列，就可以从最后一本书开始整理，逐一将书放回到书架上。请倒序返回这个书单链表。</p>
+<p>示例 1：</p>
+<p>输入：head &#x3D; [3,6,4,1]</p>
+<p>输出：[1,4,6,3]</p>
+<p>提示：</p>
+<p>0 &lt;&#x3D; 链表长度 &lt;&#x3D; 10000</p>
+<h5 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vector&lt;int&gt; reverseBookList(ListNode* head) &#123;</span><br><span class="line">    stack&lt;int&gt; resultS;</span><br><span class="line">    vector&lt;int&gt; result;</span><br><span class="line">    ListNode* current = head;</span><br><span class="line">    while (current != nullptr) &#123;</span><br><span class="line">        resultS.push(current-&gt;val);</span><br><span class="line">        current = current-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    while (!resultS.empty()) &#123;</span><br><span class="line">        result.push_back(resultS.top());</span><br><span class="line">        resultS.pop();</span><br><span class="line">    &#125;</span><br><span class="line">    return result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>就是通过栈来实现链表转数组反转，先拿出链表的数据，存储到栈中间，再把栈转成数组</p>
+<h2 id="思路分类"><a href="#思路分类" class="headerlink" title="思路分类"></a>思路分类</h2><p>这是根据思路技巧的不同进行分类</p>
 <h3 id="定长滑窗"><a href="#定长滑窗" class="headerlink" title="定长滑窗"></a>定长滑窗</h3><h4 id="原链接"><a href="#原链接" class="headerlink" title="原链接"></a>原链接</h4><p><a href="https://leetcode.cn/problems/maximum-number-of-vowels-in-a-substring-of-given-length/description/">https://leetcode.cn/problems/maximum-number-of-vowels-in-a-substring-of-given-length/description/</a></p>
 <h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>碰到这样的给定长度的窗口，然后窗口可以自由移动，让你求出不同窗口中的一些东西，比如这道题，就是在定长窗口中找到元音字母最多的数量，比较典型的定长滑窗的题目，通用的思路是三步：进入-更新-出来，窗口右端点在 <em>i</em> 时，由于窗口长度为 <em>k</em>，所以窗口左端点为 <em>i</em>−<em>k</em>+1。</p>
 <ol>
