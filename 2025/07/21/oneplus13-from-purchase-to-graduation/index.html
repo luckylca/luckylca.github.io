@@ -1,0 +1,223 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>oneplus13-from-purchase-to-graduation | Lucky</title><meta name="author" content="lca"><meta name="copyright" content="lca"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一加13从购买到毕业开头我因为实在受不了澎湃系统的种种诟病和显而易见的负优化，打算换到绿厂系列体会一下友商的手机系统，并且有强烈地刷机玩机想法，小米澎湃目前的解bootloader的政策已经基本宣告曾经那个发烧友小米已死了，雷军还是继续当他的资本家去了，全然不顾之前对发烧友们的承诺。  从大概今年5月份左右开始，酷安包括各大手机论坛上，已经没有任何人可以通过小米答题拿到解锁权，我记的从6月份开始，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="oneplus13-from-purchase-to-graduation">
+<meta property="og:url" content="http://luckylca.github.io/2025/07/21/oneplus13-from-purchase-to-graduation/index.html">
+<meta property="og:site_name" content="Lucky">
+<meta property="og:description" content="一加13从购买到毕业开头我因为实在受不了澎湃系统的种种诟病和显而易见的负优化，打算换到绿厂系列体会一下友商的手机系统，并且有强烈地刷机玩机想法，小米澎湃目前的解bootloader的政策已经基本宣告曾经那个发烧友小米已死了，雷军还是继续当他的资本家去了，全然不顾之前对发烧友们的承诺。  从大概今年5月份左右开始，酷安包括各大手机论坛上，已经没有任何人可以通过小米答题拿到解锁权，我记的从6月份开始，">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://luckylca.github.io/img/touxiang.png">
+<meta property="article:published_time" content="2025-07-21T14:08:23.000Z">
+<meta property="article:modified_time" content="2026-02-04T07:09:27.829Z">
+<meta property="article:author" content="lca">
+<meta property="article:tag" content="技术">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://luckylca.github.io/img/touxiang.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://luckylca.github.io/2025/07/21/oneplus13-from-purchase-to-graduation/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        if (name && globalFn[key][name]) return
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'oneplus13-from-purchase-to-graduation',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-02-04 15:09:27'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/touxiang.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">21</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Lucky</span></a><a class="nav-page-title" href="/"><span class="site-name">oneplus13-from-purchase-to-graduation</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">oneplus13-from-purchase-to-graduation</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-07-21T14:08:23.000Z" title="发表于 2025-07-21 22:08:23">2025-07-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-02-04T07:09:27.829Z" title="更新于 2026-02-04 15:09:27">2026-02-04</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">2.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>8分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="一加13从购买到毕业"><a href="#一加13从购买到毕业" class="headerlink" title="一加13从购买到毕业"></a>一加13从购买到毕业</h1><h2 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h2><p>我因为实在受不了澎湃系统的种种诟病和显而易见的负优化，打算换到绿厂系列体会一下友商的手机系统，并且有强烈地刷机玩机想法，小米澎湃目前的解bootloader的政策已经基本宣告曾经那个发烧友小米已死了，雷军还是继续当他的资本家去了，全然不顾之前对发烧友们的承诺。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://7fa033f.webp.li/2026/02/6023b97ca25f376717f3ed77991d3c67.png" alt="讽刺意义拉满"></p>
+<p>从大概今年5月份左右开始，酷安包括各大手机论坛上，已经没有任何人可以通过小米答题拿到解锁权，我记的从6月份开始，小米就已经开始控分了，没有任何人可以达到90分及以上，不管怎么试探答案，所有人的成绩都是80分封顶，非常恶心，我也挺后悔的，在我决定通过小米高考给我的K70Pro解锁之前几次考试，成功率都挺高的，也有不少上岸的，但是在我开始考试的后面，只有第一次有成功案例，也不多，那一期整个酷安好像就只有个位数的有90分，然后真正拿到解锁权限的好像不超过5个，之后就再也没有成功的案例了，再之后就是控分，不管怎么写题目都是70分送上。</p>
+<p>碰到这么恶心的解锁政策加史一般的澎湃OS，干脆直接投入一加的怀抱，一加13在国补的优惠下，我买了16+512的版本，3500左右拿下，只是很可惜，要是在618的话还可以省500，一加的手机也是跳水大王，首发的永远是在价格上亏爆的，但是毕竟早买早享受，晚买享优惠嘛。</p>
+<p>一加13也是出名的水桶机，各个方面都不错，算是中端旗舰了，但是我实际感觉只能说中规中矩吧，也没有很让我惊艳，具体再下文细说。</p>
+<h2 id="到货-体验"><a href="#到货-体验" class="headerlink" title="到货+体验"></a>到货+体验</h2><p>我虽然是在PDD上的百亿补贴买的，但是感觉体验非常好，快递顺丰次日达，这我也是真没想到，第一天中下午下单的，第二天下午就到了，就花了一天的时间吧，上完班就匆匆赶回来，到顺丰驿站拆封手机。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://7fa033f.webp.li/2026/02/b0c84c62d58f81b2bf22e5ea4ab20e07.jpg" alt="微信图片_20250721224343_196"></p>
+<p>这是用我的红米手机拍的照，不知道为什么，当时对焦对了半天都没成功，所以看上去感觉有点模糊，一加加上哈苏，我也是用上了影像准旗舰的手机，（虽然我对拍照的需求不大。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://7fa033f.webp.li/2026/02/187cd92e5029fd23ea5445bfed0a022d.jpg" alt="微信图片_20250721224346_197"></p>
+<p>这是它的第一次开机，一加加安卓，可惜这个画面以后看不到几次了，因为我到宿舍就直接下好了ROM和大侠阿木的解锁工具箱，到手就先解bootloader锁了，之后的所有第一界面都有了警告黄字。</p>
+<p>然后就可以开始体验ColorOS15了，这动画，小米这辈子都做不出来啊，我个人是真的喜欢堆叠式的UI，包括堆叠桌面和堆叠通知，感觉非常流畅非常舒服，我想把红米root的一大理由也是因为想体验一下堆叠桌面。</p>
+<p><video src="E:\blog\source\_posts\一加13从购买到毕业\961f5165330fc17d8aa8808cab1dc905.mp4"></video></p>
+<p>而且ColorOS的动画非常之多，包括返回的手势动画，非常灵动，唯一跟小米的差别是，目前的澎湃2.0有通知栏下拉动画，那个动画确实好看，这个ColorOS上也确实没有，不过倒也无伤大雅了。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://7fa033f.webp.li/2026/02/4261754eb692891dc8604680434cd76c.jpg" alt="微信图片_2025-07-21_232448_201"></p>
+<p>这是他套了原装后盖的样子，手感还是不错的，略带磨砂的质感，这个蓝色也是挺好看的对我来说，就是感觉摄像头模组有点大了，不过也正常，毕竟一加13的摄像不差的，至少不是扫码级别了。</p>
+<h2 id="玩机"><a href="#玩机" class="headerlink" title="玩机"></a>玩机</h2><p>我采用的是这几年兴起的，也算比较成熟的root方案，sukisu+gki内核，装gki内核主要是我刚好找到了适配一加13的gki内核，还保留了风驰内核，gki内核对应用的隐藏支持的很好，基本上使用gki内核加上隐藏应用列表再加上trick store就可以完美隐藏环境了（虽然我没有完全成功），刷入的方法也很简单，找到对应的ROM链接，使用大侠阿木的工具箱一键刷入就可以了，gki内核隐藏效果好，但是缺点就是比较耗电，也确实，我的功耗在后面卡在3w左右了，死活压不下来了，不过也能用了，虽然个人体感跟之前红米的续航差不多。具体刷的过程就省略了，这个在酷安上有很多保姆教程。、</p>
+<h3 id="root和环境隐藏"><a href="#root和环境隐藏" class="headerlink" title="root和环境隐藏"></a>root和环境隐藏</h3><p><a target="_blank" rel="noopener" href="https://www.coolapk.com/feed/66000852?s=ZGM3YzljMjMxZTZhNjdjZzY4N2U1NzY4ega1540"><strong>一加Root环境隐藏养老版—终极指南教程</strong></a>  这我参考的教程，跟着走就行了。</p>
+<p><a target="_blank" rel="noopener" href="https://www.coolapk.com/feed/66019325?s=ZWE4MTg2MzQxZTM2YmVjZzY4N2U1ODk1ega1543b3">一加13的最新SukiSUUltra内核!gki</a>   这是我使用的一加13的gki内核，听说这个内核稍微省了点电，就用了这个包。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://7fa033f.webp.li/2026/02/188374c32146e84b90da7ffaa47912b3.jpg" alt="微信图片_2025-07-21_231625_829"></p>
+<p>这是最终效果图，我没选择KPM的版本，因为KPM单独支持的模块太少了，而且KPM的版本听说耗电很快而且bug也多。</p>
+<p>然后这个时候再刷入一键隐藏包，其实这个一键隐藏包就是内置了常见的隐藏模块，包括zygisk，lsposed，隐藏应用列表，还有就是trick store，一个自动更新签名的模块，这个是为了过Google Play的验证的，如果不设置正确的密钥值，就会用不了ChatGPT，更有甚者Google Play都打不开（因为我就这样试过，当时差点崩溃想再重刷系统了），这个模块运行它的脚本就可以了，但是记得开科学上网。到这一步如果你不追求完美隐藏的话，就已经够了，正常使用不会有什么影响了。</p>
+<p>但是这样子操作之后，你还会发现，你的密钥认证过不了，显示AOSP证书链是可以被篡改的，但是你确实已经可以用谷歌程序或者ChatGPT了，这个不用慌，网上有许多教程，说是需要一个对的keybox.xml的也有，但是我直接使用了另一个模块，模块链接贴在这里了<a target="_blank" rel="noopener" href="https://www.coolapk.com/feed/65588584?s=Mjc3ZTJjODAxZTM2YmVjZzY4OTc5NDdmega1550">Tricky-Store-Assistant-Next模块</a>，按照教程的指示刷入模块，然后开梯子跑一边模块的脚本就可以过密钥认证了。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://7fa033f.webp.li/2026/02/f52eccc918c88463f8c32196fa30b9a4.jpg" alt="Screenshot_2025-08-10-02-36-08-93_6029a840d9ecf62"></p>
+<p>如图所示，就已经过了密钥认证了。</p>
+<p>关于谷歌系列的启用，酷安也有相应的教程<a target="_blank" rel="noopener" href="https://www.coolapk.com/feed/60346243?s=YWZmMjNmZjQxZTM2YmVjZzY4OTc5NTc5ega1550">ColorOs安装使用谷歌三件套</a>，就是从应用市场下载安装官方的Google Play，然后再登录自己的账号就可以了，但还要记得在设置里面打开谷歌的选项，如果登录不上，要么就是你的梯子不行，要么就是你没有过密钥认证，隐藏的非常差。</p>
+<p>然后就是隐藏应用列表的配置，这个酷安也有比较完善的教程，推荐使用黑名单的模式，花点时间把所有有可能影响环境的模块和应用添加进去就可以了，这个比较简单。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://7fa033f.webp.li/2026/02/b5c6552dba242caec995a76f9294c884.jpg" alt="Screenshot_2025-08-10-02-43-43-61_94ce8de2e58052e"></p>
+<p>这个是我的配置页面。</p>
+<p>最终效果如下</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://7fa033f.webp.li/2026/02/8b4d15c8a6f8bad6fa4075bfc12cfc3d.jpg" alt="Screenshot_2025-08-10-02-42-09-71_aa90d5c381d1285"></p>
+<p>这个时候基本上在应用隐藏的方面就毕业了，记得勾选上你想要隐藏的软件，已经可以玩许多游戏了，我实测王者没任何问题，连以环境严格的暗区突围也没有任何问题，都玩了几天了没有拉闸。</p>
+<p>还有就是关于lsposed的隐藏，其实最好的隐藏方案是压根不装lsposed，但是这对我来说根本不可能，我root的一大需求就是lsposed的模块，包括qa，wx，网易叼毛云等等，所以就需要隐藏lsposed，不过其实不隐藏也没什么关系，隐藏后可以多过一些环境检测app了。隐藏lsposed就是刷入一个去掉日志的lsposed模块而已，这个模块我在后面的magisk模块在一起分享吧</p>
+<p>还有就是一些细节上的问题了，环境隐藏的学问挺深的，有的时候装了个什么东西或者移动了什么文件，环境隐藏就失效了，包括我上一个月环境隐藏的还比较好，我就没怎么管它了，日用了一个月后，环境突然出问题了，一些之前可以过的环境检测又不能过了，所以不用太过于担心环境隐藏，有gki内核，日常使用绝大多数都已经可以正常使用检测不出来了，银行，游戏，美团都没有任何问题。</p>
+<h3 id="体验优化"><a href="#体验优化" class="headerlink" title="体验优化"></a>体验优化</h3><p>root后的重头戏就是安装一些模块或者lsposed软件，因为我当时比较懒，玩着玩着就忘记更新文档了，到后面想起来已经过去几个月了，刚好我的一加使用的心态和和过程也已经发生了比较大的变化，所以干脆统一到二更里面讲算了</p>
+<h2 id="二更"><a href="#二更" class="headerlink" title="二更"></a>二更</h2><p>这是我购买一加手机半个月后的内容了，相比刚买的激动，现在已经冷静很多了，对玩机的心态已<br>经有了比较大的变化了。</p>
+<p>最近抖音刷到了一些关于ColorOS的更新事情。最近ColorOS16已经迭代到501版本了，绿厂又OTA了一大堆新的AI方面的功能，这点比小米要好太多太多了，手痒，便打算结束养老，重新开启玩机，更个系统玩玩。</p>
+<h3 id="环境隐藏"><a href="#环境隐藏" class="headerlink" title="环境隐藏"></a>环境隐藏</h3><p>这次我没有再使用GKI内核来进行root了，只使用了sukisu的LKM来root，目前的LKM的隐藏效果其实已经比较好了，我Root也不是为了开挂，没有必要跟那些环境隐藏软件死磕，而且优势主要还在于，LKM的耗电要比GKI要好，因为GKI还要额外维护一个susfs的东西，会增加一点点功耗，并且我所使用的Zygisk-next的1.3以上版本也已经内置了。</p>
+<p>既然已经用了LKM了，那也就没必要再使用sukisu或者ksu-next这种第三方的Root管理器了，因为它们主流还是针对GKI内核做的处理，于是我就换成了KSU原版的Root管理器，也安装了元模块，理论上隐藏效果更好。</p>
+<p>关于环境隐藏，我其他的模块已经没装了，让我没想到的时候，我没装那些过谷歌验证的模块，比如play trick store，但还是不会弹验证，可能是我之前的密钥还可以用吧，不过能过就懒得装这些模块，不用再多装模块徒增功耗了。</p>
+<p>经过实际验证，隐藏效果还算比较好吧，银行类，电信类，美团淘宝等多种APP都不能检测到，谷歌类应用比如ChatGPT，Google Play也都是可以无障碍使用的，游戏的话大厂的那些比如王者，暗区，基本没什么问题，除了皇室战争国际服打不开，过这个检测就得刷GKI了，不知道他们怎么检测的，可能检测到了我的lsposed吧，这个我没去深入探究了。</p>
+<h3 id="体验优化-1"><a href="#体验优化-1" class="headerlink" title="体验优化"></a>体验优化</h3></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://luckylca.github.io">lca</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://luckylca.github.io/2025/07/21/oneplus13-from-purchase-to-graduation/">http://luckylca.github.io/2025/07/21/oneplus13-from-purchase-to-graduation/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://luckylca.github.io" target="_blank">Lucky</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%8A%80%E6%9C%AF/">技术</a></div><div class="post-share"><div class="social-share" data-image="/img/touxiang.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2025/08/18/leetcode-record/" title="leetcode-record"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">leetcode-record</div></div><div class="info-2"><div class="info-item-1">数据结构技巧记录算法刚刚入门，打算将一些需要死记硬背的算法模板和一些灵活的算法思路记录下来，以后可以复习或者思路整理。 数据结构分类这是按照算法中所使用的数据结构进行分类整理的题目 链表图书整理题目：书店店员有一张链表形式的书单，每个节点代表一本书，节点中的值表示书的编号。为更方便整理书架，店员需要将书单倒过来排列，就可以从最后一本书开始整理，逐一将书放回到书架上。请倒序返回这个书单链表。 示例 1： 输入：head &#x3D; [3,6,4,1] 输出：[1,4,6,3] 提示： 0 &lt;&#x3D; 链表长度 &lt;&#x3D; 10000 代码：1234567891011121314vector&lt;int&gt; reverseBookList(ListNode* head) &#123;    stack&lt;int&gt; resultS;    vector&lt;int&gt; result;    ListNode* current = head;    while (current != nullptr) &#123;       ...</div></div></div></a><a class="pagination-related" href="/2025/06/17/FreeRTOS-study/" title="FreeRTOS-study"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">FreeRTOS-study</div></div><div class="info-2"><div class="info-item-1">...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/08/29/csust-network-crack/" title="csust-network-crack"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-29</div><div class="info-item-2">csust-network-crack</div></div><div class="info-2"><div class="info-item-1">...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/touxiang.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">lca</div><div class="author-info-description">向着不完美的明天</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">21</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/luckylca"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="mailto:lca261224@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=2777581179&amp;website=www.oicqzone.com" target="_blank" title="QQ"><i class="fab fa-qq"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">长沙理工大学电气工程及其自动化专业在读，计算机小白一枚，记录生活，分享技术</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E5%8A%A013%E4%BB%8E%E8%B4%AD%E4%B9%B0%E5%88%B0%E6%AF%95%E4%B8%9A"><span class="toc-number">1.</span> <span class="toc-text">一加13从购买到毕业</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%A4%B4"><span class="toc-number">1.1.</span> <span class="toc-text">开头</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%B0%E8%B4%A7-%E4%BD%93%E9%AA%8C"><span class="toc-number">1.2.</span> <span class="toc-text">到货+体验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%A9%E6%9C%BA"><span class="toc-number">1.3.</span> <span class="toc-text">玩机</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#root%E5%92%8C%E7%8E%AF%E5%A2%83%E9%9A%90%E8%97%8F"><span class="toc-number">1.3.1.</span> <span class="toc-text">root和环境隐藏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%93%E9%AA%8C%E4%BC%98%E5%8C%96"><span class="toc-number">1.3.2.</span> <span class="toc-text">体验优化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E6%9B%B4"><span class="toc-number">1.4.</span> <span class="toc-text">二更</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E9%9A%90%E8%97%8F"><span class="toc-number">1.4.1.</span> <span class="toc-text">环境隐藏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%93%E9%AA%8C%E4%BC%98%E5%8C%96-1"><span class="toc-number">1.4.2.</span> <span class="toc-text">体验优化</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/29/csust-network-crack/" title="csust-network-crack">csust-network-crack</a><time datetime="2025-08-29T10:14:07.000Z" title="发表于 2025-08-29 18:14:07">2025-08-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/18/leetcode-record/" title="leetcode-record">leetcode-record</a><time datetime="2025-08-17T16:29:16.000Z" title="发表于 2025-08-18 00:29:16">2025-08-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/21/oneplus13-from-purchase-to-graduation/" title="oneplus13-from-purchase-to-graduation">oneplus13-from-purchase-to-graduation</a><time datetime="2025-07-21T14:08:23.000Z" title="发表于 2025-07-21 22:08:23">2025-07-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/17/FreeRTOS-study/" title="FreeRTOS-study">FreeRTOS-study</a><time datetime="2025-06-17T03:14:51.000Z" title="发表于 2025-06-17 11:14:51">2025-06-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/01/subject1-learning-app/" title="subject1-learning-app">subject1-learning-app</a><time datetime="2025-03-01T14:38:06.000Z" title="发表于 2025-03-01 22:38:06">2025-03-01</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2026 By lca</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(() => {
+  const initValine = () => {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'g32U1MLRYi6iTVIZNW60EEJi-MdYXbMMI',
+      appKey: '0sTUOgceVdlUrittyEAzqprS',
+      avatar: 'monsterid',
+      serverURLs: 'https://g32u1mlr.api.lncldglobal.com',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  const loadValine = async () => {
+    if (typeof Valine === 'function') initValine()
+    else {
+      await btf.getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js')
+      initValine()
+    }
+  }
+
+  if ('Valine' === 'Valine' || !true) {
+    if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-show-text.min.js" data-mobile="false" data-text="Continuous Learning" data-fontsize="15px" data-random="false" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
