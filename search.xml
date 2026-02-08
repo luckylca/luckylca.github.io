@@ -79,8 +79,8 @@
 <p>这是一个删除线：<br><del>错误的信息</del></p>
 <p>这是一个任务列表：</p>
 <ul>
-<li><input checked disabled type="checkbox"> 已完成的任务</li>
-<li><input disabled type="checkbox"> 未完成的任务</li>
+<li><input checked="" disabled="" type="checkbox"> 已完成的任务</li>
+<li><input disabled="" type="checkbox"> 未完成的任务</li>
 </ul>
 <p>这是一个表情符号：<br>:smile:</p>
 <pre><code>
@@ -880,9 +880,9 @@
 <p>感觉拍的还是不够真实，局部太暗了，当时我怎么调的我具体也忘了。</p>
 <p><img src="https://7fa033f.webp.li/2026/02/cf93f15f6af7a95be2d2d2dddb579b7c.jpg" alt="CRnall_20241202_175406704"></p>
 <h2 id="12-6"><a href="#12-6" class="headerlink" title="12.6"></a>12.6</h2><p>这其实应该是我的电脑一直挂在那里听歌才刷出来的吧。</p>
-<p><img src="/2024/12/08/december-notes-record/B9EC1BDC6C202DD000F69D21661E9D64.jpg" alt="B9EC1BDC6C202DD000F69D21661E9D64"></p>
+<p><img src="/12%E6%9C%88%E6%9C%AD%E8%AE%B0/B9EC1BDC6C202DD000F69D21661E9D64.jpg" alt="B9EC1BDC6C202DD000F69D21661E9D64"></p>
 <h2 id="12-8"><a href="#12-8" class="headerlink" title="12.8"></a>12.8</h2><p>星期天也要早起参加教授们的介绍项目的会。</p>
-<p><img src="/2024/12/08/december-notes-record/A1FB28BAECFE34D8F1EAF56E5FD63114.jpg" alt="A1FB28BAECFE34D8F1EAF56E5FD63114"></p>
+<p><img src="/12%E6%9C%88%E6%9C%AD%E8%AE%B0/A1FB28BAECFE34D8F1EAF56E5FD63114.jpg" alt="A1FB28BAECFE34D8F1EAF56E5FD63114"></p>
 ]]></content>
       <categories>
         <category>生活</category>
@@ -1396,7 +1396,7 @@
 <h4 id="思路-8"><a href="#思路-8" class="headerlink" title="思路"></a>思路</h4><p>我的方法比较容易理解，兼顾模拟和组合数字，先通过组合数字，得到三个化简为一个的方法，就是最外面的两个系数是1，中间的数字系数是2，然后就是遍历和模拟的过程了，遍历数组，一遍一遍地找三的数组，并且化简数组，通过数组的大小来判断是否继续化简。</p>
 <h4 id="代码-8"><a href="#代码-8" class="headerlink" title="代码"></a>代码</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int triangularSum(vector&lt;int&gt;&amp; nums) &#123;</span><br><span class="line">        while(1)</span><br><span class="line">        &#123;</span><br><span class="line">            if(nums.size()==1)</span><br><span class="line">                break;</span><br><span class="line">            else if(nums.size()==2)</span><br><span class="line">            &#123;</span><br><span class="line">                nums[0] = (nums[0]+nums[1])%10;</span><br><span class="line">                nums.pop_back();</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">            else</span><br><span class="line">            &#123;</span><br><span class="line">                for(int i=0;i&lt;nums.size()-2;i++)</span><br><span class="line">                &#123;</span><br><span class="line">                    nums[i] = (nums[i]+nums[i+1]+nums[i+1]+nums[i+2])%10;</span><br><span class="line">                &#125;        </span><br><span class="line">                nums.pop_back();</span><br><span class="line">                nums.pop_back(); </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return nums[0];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<h4 id><a href="#" class="headerlink" title></a></h4>]]></content>
+<h4 id=""><a href="#" class="headerlink" title=""></a></h4>]]></content>
       <categories>
         <category>技术</category>
       </categories>
@@ -1455,6 +1455,49 @@
       </categories>
       <tags>
         <tag>单片机</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>小黑盒后端参数逆向</title>
+    <url>/2026/02/08/xhhBack-crack/</url>
+    <content><![CDATA[<h1 id="小黑盒后端参数逆向"><a href="#小黑盒后端参数逆向" class="headerlink" title="小黑盒后端参数逆向"></a>小黑盒后端参数逆向</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近闲来无事，想着逆向一下小黑盒的API接口，小黑盒因为有web端，所以不用在手机上抓包来看请求，直接在浏览器中用DevTools工具就可以看了，相比于知乎等其他后端，小黑盒的防护还算比较简答，小黑盒整个页面都是基于vue和vite搭建出来的。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>首先尝试在DevTools中搜索api，果不其然，直接找到了相应的api请求，也直接可以看到后端请求的地址，剩下的是不是直接访问就可以了吗，当然没这么简单。</p>
+<p><img src="https://7fa033f.webp.li/2026/02/3f95b8e6107c97ce1c70b654a8541b8a.png" alt="image.png"></p>
+<p>我们肯定第一步就是先看看请求header，小黑盒的请求header倒没什么有效的信息，唯一可以说有效的，可能就是cookie了，这个登录以后，直接就可以复制进来用，其他的都是一些固定的参数，也没有加密什么之类的</p>
+<p>然后自然就是请求链接了，我们先提取出一个链接来看看。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://api.xiaoheihe.cn/account/data_report_web/?os_type=web&amp;app=heybox&amp;client_type=web&amp;version=999.0.4&amp;web_version=2.5&amp;x_client_type=web&amp;x_app=heybox_website&amp;heybox_id&amp;x_os_type=Windows&amp;device_info=Chrome&amp;device_id=2c2fef8385ccef915e3b3caf94e3aa06&amp;hkey=3XX1P62&amp;_time=1770529394&amp;nonce=3D6891C5FEBD5A0A4C986784D2F60E81&amp;type=104&amp;time_=1770529394</span><br></pre></td></tr></table></figure>
+
+<p>不难发现，很多内容也都是固定的，没有什么含金量，但是最后的几个参数，就会发现有点不对劲了，那些time，hkey，nonce又是什么，怎么凭空出现这么多变化的参数，所以这一部分的内容，就是我们需要逆向的重点。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hkey=3XX1P62&amp;_time=1770529394&amp;nonce=3D6891C5FEBD5A0A4C986784D2F60E81&amp;time_=1770529394</span><br></pre></td></tr></table></figure>
+
+<p>首先可以观察，time和_time一直是一样的，根据英文，应该可以知道，这个大概率是一个时间戳，经过验证，这个time就是当前美国时间的时间戳。</p>
+<p>然后就是nonce和hkey了，这个非常没有头绪，nonce看着像md5，每次还不一样，其实nonce就是一串随机的md5，把二进制的哈希，转化为16进制的字符串，内容是无所谓的，这个参数的作用主要是配合time，防止重放攻击。</p>
+<p>最后是hkey，这个也是整个逆向过程中，最难的一个步骤了。</p>
+<p>首先在DevTools里面请求完后全局搜索hkey，但是会发现一无所获，所搜索到的一些js，里面都没有跟hkey相关的。</p>
+<p>那应该怎么办呢。可以选择下断点，重新复现一下请求的过程，我们随便找一个api下断点，比如找feeds下XHR断点，就是一旦执行了包含feeds这个路由的访问时，就进入中断，果不其然，又有了新的发现。</p>
+<p><img src="https://7fa033f.webp.li/2026/02/3b399dc2472f9a41ecd5c6612f24345a.png" alt="image.png"></p>
+<p>这一次，我们进入了一个完全不一样的js文件，这个js文件非常大，这个文件就是vue&#x2F;vite打包生成的一个文件，非常大，有1mb左右了，里面就包含了关于hkey的逻辑。</p>
+<p>所以我选择把这个文件交给了gemini，结果很顺利，它经过了几次测试后，终于测试出了，生成hkey的方式。</p>
+<p> <strong>算法逻辑</strong>:</p>
+<pre><code>- 使用了三个输入：路径、时间戳、Nonce。
+    
+- 通过 `av` 和 `sv` 函数将这三个输入映射到字符集。
+    
+- 将映射后的字符串进行**交错混合** (Interleaving)。
+    
+- 对混合后的字符串取 **MD5**。
+    
+- 前缀取 MD5 前 5 位映射字符集，后缀取 MD5 后 6 位进行 Rijndael 变换（`Km` 函数）并计算校验和。
+</code></pre>
+<p>这是整个过程的主要逻辑，把整个过程，用js表达出来，就是这样。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import hashlib</span><br><span class="line">import time</span><br><span class="line"></span><br><span class="line"># --- 基础混淆函数---</span><br><span class="line">def Vm(e):</span><br><span class="line">    if e &amp; 128:</span><br><span class="line">        return (255 &amp; ((e &lt;&lt; 1) ^ 27))</span><br><span class="line">    else:</span><br><span class="line">        return e &lt;&lt; 1</span><br><span class="line"></span><br><span class="line">def qm(e):</span><br><span class="line">    return Vm(e) ^ e</span><br><span class="line"></span><br><span class="line">def dollar_m(e):</span><br><span class="line">    return qm(Vm(e))</span><br><span class="line"></span><br><span class="line">def Ym(e):</span><br><span class="line">    return dollar_m(qm(Vm(e)))</span><br><span class="line"></span><br><span class="line">def Gm(e):</span><br><span class="line">    return Ym(e) ^ dollar_m(e) ^ qm(e)</span><br><span class="line"></span><br><span class="line">def Km_full(e_arr):</span><br><span class="line">    # 处理数组变换</span><br><span class="line">    e = e_arr[:] # 复制数组</span><br><span class="line">    t = [0, 0, 0, 0]</span><br><span class="line">    t[0] = Gm(e[0]) ^ Ym(e[1]) ^ dollar_m(e[2]) ^ qm(e[3])</span><br><span class="line">    t[1] = qm(e[0]) ^ Gm(e[1]) ^ Ym(e[2]) ^ dollar_m(e[3])</span><br><span class="line">    t[2] = dollar_m(e[0]) ^ qm(e[1]) ^ Gm(e[2]) ^ Ym(e[3])</span><br><span class="line">    t[3] = Ym(e[0]) ^ dollar_m(e[1]) ^ qm(e[2]) ^ Gm(e[3])</span><br><span class="line">    </span><br><span class="line">    # 更新前4位</span><br><span class="line">    e[0], e[1], e[2], e[3] = t[0], t[1], t[2], t[3]</span><br><span class="line">    return e</span><br><span class="line"></span><br><span class="line"># --- 新版映射函数 ---</span><br><span class="line">def av(e, t, n):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    e: 输入字符串</span><br><span class="line">    t: 字符集</span><br><span class="line">    n: 切片长度 (负数表示切掉末尾)</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    if n &lt; 0:</span><br><span class="line">        i = t[:n]</span><br><span class="line">    else:</span><br><span class="line">        i = t[:n]</span><br><span class="line">    </span><br><span class="line">    r = &quot;&quot;</span><br><span class="line">    for char in e:</span><br><span class="line">        idx = ord(char) % len(i)</span><br><span class="line">        r += i[idx]</span><br><span class="line">    return r</span><br><span class="line"></span><br><span class="line">def sv(e, t):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    e: 输入字符串</span><br><span class="line">    t: 字符集</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    n_str = &quot;&quot;</span><br><span class="line">    for char in e:</span><br><span class="line">        idx = ord(char) % len(t)</span><br><span class="line">        n_str += t[idx]</span><br><span class="line">    return n_str</span><br><span class="line"></span><br><span class="line">def get_hkey(url_path, timestamp, nonce):</span><br><span class="line">    # 1. 字符集 (从文件中提取)</span><br><span class="line">    charset = &quot;AB45STUVWZEFGJ6CH01D237IXYPQRKLMN89&quot;</span><br><span class="line">    </span><br><span class="line">    # 2. 路径标准化</span><br><span class="line">    parts = [p for p in url_path.split(&#x27;/&#x27;) if p]</span><br><span class="line">    normalized_path = &quot;/&quot; + &quot;/&quot;.join(parts) + &quot;/&quot;</span><br><span class="line">    </span><br><span class="line">    # 3. 生成三个分量</span><br><span class="line">    # 分量1: 处理时间戳 (使用字符集的前34位，即切掉后2位)</span><br><span class="line">    comp1 = av(str(timestamp), charset, -2)</span><br><span class="line">    </span><br><span class="line">    # 分量2: 处理路径 (使用完整字符集)</span><br><span class="line">    comp2 = sv(normalized_path, charset)</span><br><span class="line">    </span><br><span class="line">    # 分量3: 处理Nonce (使用完整字符集)</span><br><span class="line">    comp3 = sv(nonce, charset)</span><br><span class="line">    </span><br><span class="line">    # 4. 字符串交错混合 (Interleave)</span><br><span class="line">    # 逻辑: 取三个字符串的第0位拼接，然后第1位拼接...直到最大长度</span><br><span class="line">    comps = [comp1, comp2, comp3]</span><br><span class="line">    max_len = max(len(c) for c in comps)</span><br><span class="line">    </span><br><span class="line">    interleaved = &quot;&quot;</span><br><span class="line">    for k in range(max_len):</span><br><span class="line">        for c in comps:</span><br><span class="line">            if k &lt; len(c):</span><br><span class="line">                interleaved += c[k]</span><br><span class="line">                </span><br><span class="line">    # 截取前20位作为哈希输入</span><br><span class="line">    i_str = interleaved[:20]</span><br><span class="line">    </span><br><span class="line">    # 5. 计算 MD5</span><br><span class="line">    md5_hash = hashlib.md5(i_str.encode(&#x27;utf-8&#x27;)).hexdigest()</span><br><span class="line">    </span><br><span class="line">    # 6. 计算前缀 (使用 MD5 前5位映射，字符集切掉后4位)</span><br><span class="line">    o_prefix = md5_hash[:5]</span><br><span class="line">    hkey_prefix = av(o_prefix, charset, -4)</span><br><span class="line">    </span><br><span class="line">    # 7. 计算后缀校验和 (使用 MD5 后6位)</span><br><span class="line">    suffix_part = md5_hash[-6:]</span><br><span class="line">    suffix_input = [ord(c) for c in suffix_part]</span><br><span class="line">    </span><br><span class="line">    # 运行 Km 算法</span><br><span class="line">    km_output = Km_full(suffix_input)</span><br><span class="line">    </span><br><span class="line">    # 求和取余</span><br><span class="line">    checksum_val = sum(km_output) % 100</span><br><span class="line">    checksum_str = f&quot;&#123;checksum_val:02d&#125;&quot;</span><br><span class="line">    </span><br><span class="line">    return hkey_prefix + checksum_str</span><br><span class="line"></span><br><span class="line"># --- 验证你的数据 ---</span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    # 输入数据</span><br><span class="line">    path = &quot;/bbs/app/api/emojis/list&quot;</span><br><span class="line">    ts = 1770287253</span><br><span class="line">    nonce = &quot;2B81EA33B45BA438DB1E4DFC5375B5D6&quot;</span><br><span class="line"></span><br><span class="line">    # 计算</span><br><span class="line">    hkey = get_hkey(path, ts, nonce)</span><br><span class="line">    </span><br><span class="line">    print(f&quot;Path: &#123;path&#125;&quot;)</span><br><span class="line">    print(f&quot;Time: &#123;ts&#125;&quot;)</span><br><span class="line">    print(f&quot;Nonce: &#123;nonce&#125;&quot;)</span><br><span class="line">    print(f&quot;Calculated hkey: &#123;hkey&#125;&quot;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>其中path和ts都是可变的，nonce也是随意的。</p>
+<h2 id="成品"><a href="#成品" class="headerlink" title="成品"></a>成品</h2><p><a href="https://github.com/luckylca/xhhBackCrack">GitHub - luckylca&#x2F;xhhBackCrack: 小黑盒后端请求逆向</a></p>
+<p>这是应用方法，可以选择后可以直接运行，打开后的链接真实有效，在cookie正确的前提下，成功拿到了后端发过来的json</p>
+]]></content>
+      <tags>
+        <tag>技术</tag>
       </tags>
   </entry>
 </search>
