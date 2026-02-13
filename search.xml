@@ -897,7 +897,7 @@
     <content><![CDATA[<h1 id="长理校园网多设备破解"><a href="#长理校园网多设备破解" class="headerlink" title="长理校园网多设备破解"></a>长理校园网多设备破解</h1><h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>因为我苦于随身wifi的龟速（就算运气好信号好，跑满也只有20m），所以打算办一个校园网，但是众所周知，在长理办的校园网非常的不划算，平均一个月一台设备就要30元，如果你只花了30元买了无线的套餐，那么你就只能要么用wifi连接手机，要么用wifi连接电脑，总之是不可能同时连接的，性价比非常低，你如果想手机电脑同时连接的话，就需要购买60元的套餐，而且也只能电脑连接有线，手机连接wifi，非常的难受和昂贵，于是乎我也想到了关于长理校园网多设备破解的内容，所以也打算尝试买一台路由器或者软路由绕过长理校园网的多设备限制，刚好我也认识了一些大佬，他们提供了我许多思路和步骤。</p>
 <h2 id="经过"><a href="#经过" class="headerlink" title="经过"></a>经过</h2><h3 id="路由器购买"><a href="#路由器购买" class="headerlink" title="路由器购买"></a>路由器购买</h3><p>我首先打算选择的路由器是红米ax3000，这个价格比较便宜，而且基本功能都具备，也非常好刷机刷openwrt，但是我后来偶然在百度贴吧上发现了他们关于红米ax3000的讨论，好像性能有点不够，比较难流畅运行openclash，而openclash就是破解校园网多设备和路由器层面科学上网的关键步骤，所以我只能另外寻找其他的替代品，当时还打算买红米ax6000，但是一看感觉价格太贵了，性价比有限，后来偶然在恩山无线论坛逛的时候，发现了一台叫做京东云亚瑟的机子，价格便宜，也非常适合我目前的使用，京东云亚瑟是之前京东推出的类似网心云的占用你上传宽带的赚钱小东西，但现在京东官方也买不到，只能从咸鱼二手买，因为这台机子刷机有点复杂，需要拆机短接进9008，所以我为了省事，直接从咸鱼买了成品。</p>
 <p><img src="https://7fa033f.webp.li/2026/02/911b5eafa03a8ed7aede71bb45b02780.jpg" alt="Screenshot_2025-08-28-01-08-51-29_0dff84d2da4d0ad"></p>
-<p>这是配置列表，我花了70包邮买的，事实证明，我的选择没有问题，使用起来非常流程，最终也完成了校园网多设备的破解，速度也很快，内网测速有千兆，无线网络也可以跑满校园网的速度。</p>
+<p>这是配置列表，我花了70包邮买的，事实证明，我的选择没有问题，使用起来非常流畅，最终也成功完成了校园网多设备的破解，速度也很快，内网测速有千兆，无线网络也可以跑满校园网的速度。</p>
 <p><img src="https://7fa033f.webp.li/2026/02/a576eb60ee1e654358046449f8a5b7ef.jpg" alt="1756489910445_compressed"></p>
 <p>这是它的具体长相，可以看到还是比较好看的，整体也比较新，到手联上网线和电源就可以配置ImmortalWrt了，这个ImmortalWrt其实就是openwrt的闭源版本，针对京东云亚瑟这台机子做了专门的驱动，效果还是不错的，一开始也内置了许多的插件，还有应用商店，整体来说话还是比较好用的。</p>
 <h3 id="校园网多设备破解"><a href="#校园网多设备破解" class="headerlink" title="校园网多设备破解"></a>校园网多设备破解</h3><p>接下来讲解和分析校园网多设备破解的步骤。</p>
@@ -908,7 +908,7 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">opkg install iptables</span><br></pre></td></tr></table></figure>
 
 <p>不过大部分linux系统都预装了<strong>iptables</strong>，这个不需要太担心。</p>
-<h4 id="统一ua"><a href="#统一ua" class="headerlink" title="统一ua"></a>统一ua</h4><p>接下来要做的就是统一浏览器的UA，让网络认为我们是同一个客户端在访问，这里就需要用到一个插件<strong>ua3f</strong>，<a href="https://github.com/SunBK201/UA3F%EF%BC%8C%E8%BF%99%E6%98%AF%E5%AE%83%E7%9A%84github%E4%B8%BB%E9%A1%B5%EF%BC%8C%E6%8C%89%E7%85%A7readme%E7%9A%84%E5%86%85%E5%AE%B9%E5%AE%89%E8%A3%85%E8%BF%99%E4%B8%AA%E6%8F%92%E4%BB%B6%E5%8D%B3%E5%8F%AF%EF%BC%8C%E5%AE%89%E8%A3%85%E5%AE%8C%E6%88%90%E5%90%8E%E8%AE%B0%E5%BE%97%E9%87%8D%E5%90%AF%E6%88%96%E8%80%85%E5%88%B7%E6%96%B0%E5%AE%A2%E6%88%B7%E7%AB%AF%EF%BC%8C%E7%84%B6%E5%90%8E%E5%90%AF%E7%94%A8%E8%BF%99%E4%B8%AA%E6%8F%92%E4%BB%B6%E3%80%82">https://github.com/SunBK201/UA3F，这是它的github主页，按照readme的内容安装这个插件即可，安装完成后记得重启或者刷新客户端，然后启用这个插件。</a></p>
+<h4 id="统一ua"><a href="#统一ua" class="headerlink" title="统一ua"></a>统一ua</h4><p>接下来要做的就是统一浏览器的UA，让网络认为我们是同一个客户端在访问，这里就需要用到一个插件<strong>ua3f</strong>，<a href="https://github.com/SunBK201/UA3F">GitHub - SunBK201&#x2F;UA3F: Advanced HTTP(S) Rewriting Tool</a>，这是它的github主页，按照readme的内容安装这个插件即可，安装完成后记得重启或者刷新客户端，然后启用这个插件。</p>
 <p>然后我们要做的就是安装openclash或者shellcrash了，两个都是运行在openwrt系统上面的系统代理软件，其中shellcrash占用的内存相对要小一些。</p>
 <p>我首先安装的是openclash，我先是安装了旧版本的openclash，结果发现代理始终启动不了，然后更新了新版本的openclash后，又有新的问题了，就是正常配置后启动后没有效果，并没有隐藏UA，我于是只好装了shellcrash，这次就比较成功了，安装成功了，更新meta内核和运行也没什么问题，非常好。</p>
 <p>具体的安装步骤可以参考这篇文章，写的非常详细，<a href="https://sunbk201public.notion.site/UA3F-Clash-16d60a7b5f0e457a9ee97a3be7cbf557?pvs=4">UA3F和clash配置</a></p>
@@ -1495,6 +1495,46 @@
 <p>其中path和ts都是可变的，nonce也是随意的。</p>
 <h2 id="成品"><a href="#成品" class="headerlink" title="成品"></a>成品</h2><p><a href="https://github.com/luckylca/xhhBackCrack">GitHub - luckylca&#x2F;xhhBackCrack: 小黑盒后端请求逆向</a></p>
 <p>这是应用方法，可以选择后可以直接运行，打开后的链接真实有效，在cookie正确的前提下，成功拿到了后端发过来的json</p>
+]]></content>
+      <tags>
+        <tag>技术</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>知乎web后端api小逆向</title>
+    <url>/2026/02/13/zhihu-back-small-crack/</url>
+    <content><![CDATA[<h1 id="知乎web后端api请求小逆向"><a href="#知乎web后端api请求小逆向" class="headerlink" title="知乎web后端api请求小逆向"></a>知乎web后端api请求小逆向</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>其实这个有点小水，但是水又不太可能，因为我最近打算用react native框架，搓一个第三方知乎的客户端，客户端就肯定要有api，知乎等这些大厂的后端api请求，都是有加密的，看的就是加密的难和易了，不过经过我的实际验证，可以证明，知乎的加密和反爬虫非常厉害，有大量的混淆和拆分，逆向过程还算是比较艰难的，这也就是不可能水的原因。</p>
+<p>但是其实在这之前，我已经通过逆向一个开源知乎app的项目，已经做到了知乎api的逆向，这个基本上没有什么难度，稍微读一下源代码就完成了，所以已经对知乎整个加密过程已经有了一大部分的掌握了，也拿到了它们用来加密的base64的加密密钥，但是现在又来重新逆向玩一下知乎api，所以说有点先射箭再画靶的感觉，所以说有点小水。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><h3 id="XHR断点"><a href="#XHR断点" class="headerlink" title="XHR断点"></a>XHR断点</h3><p>这种逆向的通用思路，肯定第一步都是下断点，找到发出请求的位置，随便找个关键词下XHR断点，我用了me作为关键词，因为api请求地址就是这个，并且还算比较唯一，这个没什么难度，直接就可以断到了发出请求的位置</p>
+<p><img src="https://7fa033f.webp.li/2026/02/e638afbc2c6d69869b1dadef9a767f07.png" alt="image.png"></p>
+<p>于是我想尝试跟小黑盒后端逆向一样，把整个js文件拿到，然后直接去做分析，不过这一次还是异想天开了，知乎的反爬虫很厉害，首先它把文件拆成了很多份，很多不同的模块，不像小黑盒，就是vue打包出来的一个main.js，堆栈最顶上的js文件并没有任何有用的信息，其实实际上就算有用的信息，也收集不到，因为知乎的反爬虫非常厉害，它们也根本没用明文来存Base64的自定义字符表，而是一点点的字符串拼接而成的，还配有了各种的混淆，非常的阴间。</p>
+<h3 id="分析堆栈"><a href="#分析堆栈" class="headerlink" title="分析堆栈"></a>分析堆栈</h3><p>既然栈顶的文件没有什么用处，那就只能往后面来，按照堆栈的顺序，从新到旧来找调用，看到什么时候的在函数的参数里面没有看到header的 <strong>x-zse-96</strong> ，就顺着这个调用堆栈往下面依次来找就可以了。</p>
+<p><img src="https://7fa033f.webp.li/2026/02/133875eb5d0d8c37533beb1885551c41.png" alt="image.png"></p>
+<p>最终我发现了可疑的一个点。</p>
+<p><img src="https://7fa033f.webp.li/2026/02/8087abd2ddf205c5e061ab6e9c54400d.png" alt="image.png"></p>
+<p>就是在调用堆栈的这个位置，你会发现函数传进来的参数已经找不到<strong>x-zes-96</strong>了，那么显而易见，从这里到上一个位置，就是生成了加密的核心 <strong>x-zes-96</strong> 的代码了，定位到这里，就已经完成逆向的50%了。</p>
+<h3 id="断点单步"><a href="#断点单步" class="headerlink" title="断点单步"></a>断点单步</h3><p>既然找到关键位置了，那么必不可少的，下断点，单步执行，再这之前，记得把之前的XHR断点取消了，那个断点已经没有用了，我们现在只需要跟着断点走，就肯定会找到加密部分的js代码了。</p>
+<p>现在要做的，就是频繁的单步或者跳出函数，慢慢往下走，尝试看能不能找到关键的代码，同时在单步的同时，主要看一下中间变量的header参数，只要没有出现 <strong>x-zes-96</strong> ，那就肯定没执行到那里，需要继续往下走。</p>
+<p><img src="https://7fa033f.webp.li/2026/02/0fcf2c7d8dec77a4b26eac6ce37ef172.png" alt="image.png"></p>
+<p>当你单步执行到这里的时候，就找到关键位置了，这里就是生成加密的核心，可以看到， 101 ，还有 _ 这种字符串拼接的字符。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">var tc = function(tt) &#123;</span><br><span class="line">	return tt &amp;&amp; tt.version &amp;&amp; &quot;function&quot; == typeof tt.encrypt ? tt : &#123;</span><br><span class="line">		encrypt: tu.ZP,</span><br><span class="line">		version: tu.XL</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>并且可以分析上面的代码，很容易可以看到，这是从tu里面传出来的，而tu又是由最上面的1514函数传进来的，所以下一步我们要做的，就是对1514函数下手了。</p>
+<h3 id="分析加密函数"><a href="#分析加密函数" class="headerlink" title="分析加密函数"></a>分析加密函数</h3><p>定位到1514函数附近</p>
+<p><img src="https://7fa033f.webp.li/2026/02/23316311cad9d5e5b12aef9a4a13578b.png" alt="image.png"></p>
+<p>这个1514函数非常长，这就是生成密钥的关键部分了，这个也算是知乎反爬虫的精华了，技术顶尖。</p>
+<p><img src="https://7fa033f.webp.li/2026/02/844fbdc19d1b8db54d8c72406991cbb3.png" alt="image.png"></p>
+<p>这个可以理解是一个手写的cpu，把js代码拆成很小的汇编指令集，顶级的混淆，很难从中分析出具体的逻辑，不过我也不打算从中拿到具体的处理逻辑，我只尝试了获取到自定义字符集的内容。</p>
+<h3 id="闭包获取字符集"><a href="#闭包获取字符集" class="headerlink" title="闭包获取字符集"></a>闭包获取字符集</h3><p> 尽管代码被高度混淆，但自定义字符集最终还是会在某个地方被定义或组装。通过在关键位置设置断点，并利用闭包的特性，我们可以检查函数作用域内的变量，从而获取到这个字符集。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">var D = function(tt) &#123;</span><br><span class="line">	return __g._encrypt(encodeURIComponent(tt))</span><br><span class="line">&#125;;</span><br><span class="line">exports.XL = A,</span><br><span class="line">exports.ZP = D</span><br></pre></td></tr></table></figure>
+
+<p>在1514函数的末尾处，有一个这样的调用，利用js中闭包的特性，D函数导出了__g，ZP又把D导出了，那么__g就不会随着函数的结束而被销毁，而是被留在了内存中。</p>
+<p>这就是js中的闭包，接下来我们在这里设下断点，并且运行到这里，打印出__g。</p>
+<p><img src="https://7fa033f.webp.li/2026/02/4822f71df7a84c89566f449c9687d0a4.png" alt="image.png"></p>
+<p>这里面的内容，就是我们苦苦追寻的答案了。</p>
+<p>其中  “6fpLRqJO8M&#x2F;c3jnYxFkUVC4ZIG12SiH&#x3D;5v0mXDazWBTsuw7QetbKdoPyAl+hN9rgE”，这个就是知乎的base64的自定义字符集，等号需要去掉，这里是他们作为分割符放到这里了。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本次逆向知乎web后端API的过程，再次验证了知乎在反爬虫和代码混淆方面的强大实力。尽管过程充满挑战，尤其是在面对其将JS代码拆解成“汇编指令集”式的顶级混淆时，但通过XHR断点、堆栈分析、单步调试以及利用JS闭包特性，我们最终成功定位并提取了生成加密核心 <code>x-zse-96</code> 的关键逻辑，获取到了知乎自定义的Base64字符集。</p>
+<p>但是要知道，获取到这个信息，只是整个逆向的一小步，还没有触及到它们的核心加密逻辑的部分，这里还是不得不佩服其他早已经完成知乎后端逆向api的人，道阻且长。</p>
 ]]></content>
       <tags>
         <tag>技术</tag>
